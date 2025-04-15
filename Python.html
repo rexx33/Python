@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Python</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      background-image: url('color.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      max-width: 90%;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: white;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    video {
+      width: 640px;
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: rgba(0, 123, 255, 0.85);
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: rgba(0, 86, 179, 0.9);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🐍 WHAT IS PYTHON? 🐍</h1>
+    <video id="myVideo" src="python.mp4" controls></video>
+    <div class="controls">
+      <button onclick="playVideo()">▶️ Play</button>
+      <button onclick="pauseVideo()">⏸️ Pausa</button>
+      <button onclick="restartVideo()">🔁 Riavvia</button>
+      <button onclick="goFullscreen()">🖥️ Schermo Intero</button>
+    </div>
+  </div>
+
+  <script>
+    const video = document.getElementById('myVideo');
+
+    function playVideo() {
+      video.play();
+    }
+
+    function pauseVideo() {
+      video.pause();
+    }
+
+    function restartVideo() {
+      video.currentTime = 0;
+      video.play();
+    }
+
+    function goFullscreen() {
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if (video.webkitRequestFullscreen) {
+        video.webkitRequestFullscreen();
+      } else if (video.msRequestFullscreen) {
+        video.msRequestFullscreen();
+      }
+    }
+  </script>
+</body>
+</html>
